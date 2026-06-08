@@ -205,7 +205,7 @@ export async function syncSellerListingsWithSupabase(): Promise<SellerListing[]>
  */
 export async function readAllSellerListingsFromSupabase(): Promise<SellerListing[]> {
   try {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://stamp-safar-backend.onrender.com";
     const headers = await authHeaders();
     const response = await fetch(`${backendUrl}/admin/listings`, { headers });
     const data = await response.json();
@@ -237,7 +237,7 @@ export async function readAllSellerListingsFromSupabase(): Promise<SellerListing
  */
 export async function adminUpdateListingStatusInSupabase(id: string, status: SellerListingStatus): Promise<void> {
   try {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://stamp-safar-backend.onrender.com";
     const headers = await authHeaders();
     const response = await fetch(`${backendUrl}/admin/update-listing`, {
       method: "POST",

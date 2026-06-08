@@ -215,7 +215,7 @@ export async function cancelOrderInBackend(orderId: string, reason: string): Pro
   window.dispatchEvent(new CustomEvent(ORDERS_UPDATED_EVENT));
 
   try {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://stamp-safar-backend.onrender.com";
     const headers = await authHeaders();
     const response = await fetch(`${backendUrl}/cancel-order`, {
       method: "POST",
@@ -260,7 +260,7 @@ export async function returnOrderInBackend(orderId: string, reason: string): Pro
   window.dispatchEvent(new CustomEvent(ORDERS_UPDATED_EVENT));
 
   try {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://stamp-safar-backend.onrender.com";
     const headers = await authHeaders();
     const response = await fetch(`${backendUrl}/return-order`, {
       method: "POST",
@@ -293,7 +293,7 @@ export async function returnOrderInBackend(orderId: string, reason: string): Pro
  */
 export async function readAllOrdersFromSupabase(): Promise<OrderItem[]> {
   try {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://stamp-safar-backend.onrender.com";
     const headers = await authHeaders();
     const response = await fetch(`${backendUrl}/admin/orders`, { headers });
     const data = await response.json();
@@ -332,7 +332,7 @@ export async function adminUpdateOrderStatusInBackend(
   status?: string
 ): Promise<boolean> {
   try {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://stamp-safar-backend.onrender.com";
     const headers = await authHeaders();
     const response = await fetch(`${backendUrl}/admin/update-order`, {
       method: "POST",
@@ -349,7 +349,7 @@ export async function adminUpdateOrderStatusInBackend(
 
 export async function readPaymentSettings(): Promise<{ upi_id: string; qr_code_url: string }> {
   try {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://stamp-safar-backend.onrender.com";
     const response = await fetch(`${backendUrl}/payment-settings`);
     const data = await response.json();
     if (response.ok && data.success) {
@@ -369,7 +369,7 @@ export async function readPaymentSettings(): Promise<{ upi_id: string; qr_code_u
  */
 export async function updatePaymentSettingsInBackend(upiId: string, qrCodeUrl: string): Promise<boolean> {
   try {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://stamp-safar-backend.onrender.com";
     const headers = await authHeaders();
     const response = await fetch(`${backendUrl}/admin/update-settings`, {
       method: "POST",
@@ -391,7 +391,7 @@ export async function readAllUsersFromBackend(): Promise<
   { id: string; email: string; name: string; role: string; created_at: string; last_sign_in_at: string }[]
 > {
   try {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://stamp-safar-backend.onrender.com";
     const headers = await authHeaders();
     const response = await fetch(`${backendUrl}/admin/users`, { headers });
     const data = await response.json();

@@ -230,7 +230,7 @@ function Dashboard() {
         }
 
         // 4. Fetch dynamic analytics with authorization header
-        const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+        const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://stamp-safar-backend.onrender.com";
         const headers = await getHeaders();
         const aRes = await fetch(`${backendUrl}/admin/analytics`, { headers });
         const aData = await aRes.json();
@@ -331,7 +331,7 @@ function Dashboard() {
         setAdminOrders(allOrders);
 
         // Reload analytics with authorization header
-        const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+        const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://stamp-safar-backend.onrender.com";
         const sessionRes = supabase ? await supabase.auth.getSession() : null;
         const token = sessionRes?.data?.session?.access_token || "";
         const headers: Record<string, string> = { "Content-Type": "application/json" };

@@ -248,7 +248,7 @@ function BuyStampPage() {
     const pollPaymentStatus = async () => {
       if (isFinished) return;
       try {
-        const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+        const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://stamp-safar-backend.onrender.com";
         const response = await fetch(`${backendUrl}/verify-upi-payment`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -362,7 +362,7 @@ function BuyStampPage() {
         }
       }
 
-      const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://stamp-safar-backend.onrender.com";
 
       // FLOW A: Pay via UPI ID (Kolkata Metro Style)
       if (paymentMethod === "upi-collect") {

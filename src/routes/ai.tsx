@@ -175,7 +175,7 @@ function buildOfflineChatReply(
 
 // Server action to query Gemini API (with simulated/mock fallbacks if API Key is not set)
 export async function aiServiceFn({ data }: { data: { prompt?: string; imageBase64?: string; filename?: string; stampContext?: string; language?: ChatLanguageCode } }) {
-  const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+  const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://stamp-safar-backend.onrender.com";
   try {
     const response = await fetch(`${backendUrl}/api/ai`, {
       method: "POST",
